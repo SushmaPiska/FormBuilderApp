@@ -14,7 +14,8 @@ const PORT = process.env.PORT || 8000;
 const __dirname=path.resolve()
 
 app.use(express.json()); 
-const allowedOrigins = ['http://localhost:5173', 'http://localhost:5174',"https://formbuilderapp.onrender.com/"];
+
+const allowedOrigins = ['http://localhost:5173',"http://localhost:5000", 'http://localhost:5174',"https://formbuilderapp.onrender.com/"];
 
 app.use(cors({
   origin: function (origin, callback) {
@@ -28,11 +29,20 @@ app.use(cors({
 }));
 app.options('*', cors());
 
-app.use(express.static(path.join(__dirname, 'frontend', 'dist')));
-app.use(express.static(__dirname + '/public'));
-
 app.use("/api/auth",userRouter);
 // app.use("/api/auth",taskRouter);
+
+
+// app.use(express.static(path.join(__dirname,'..', 'frontend', 'dist')));
+console.log(path.join(__dirname,'..', 'frontend', 'dist'))
+// app.use(express.static(__dirname + 'frontend'+ '/public'));
+app.use(express.static(path.join(__dirname, '..', 'frontend', 'public')));
+
+app.use(express.static(__dirname + '/public'));
+
+console.log(__dirname + '/public')
+// app.use(express.static('public'));
+
 
 app.get("*",(req,res)=>{
   res.sendFile(path.join(__dirname,'frontend','dist','index.html'));
