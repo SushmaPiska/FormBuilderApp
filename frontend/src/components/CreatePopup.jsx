@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './createPopup.module.css'
+import styles from './CreatePopup.module.css'
 function CreatePopup({createWhat,setIsCreateClicked}) {
     const handleCancel=()=>{
         setIsCreateClicked(false)
