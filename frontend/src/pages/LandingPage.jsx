@@ -5,7 +5,7 @@ import landingPage from "../assets/landingPage.png";
 import landingFigure from "../assets/landingFigure.png";
 import triShape from "../assets/triShape.png";
 import semicircleShape from "../assets/semicircleShape.png";
-import LandingFooter from "../components/landingFooter";
+import LandingFooter from "../components/LandingFooter";
 import TitleLogo from "../components/TitleLogo";
 
 import { useNavigate } from "react-router-dom";
