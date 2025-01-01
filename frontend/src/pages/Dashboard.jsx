@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 import createFolderIcon from "../assets/createFolderIcon.png";
 import deleteIcon from "../assets/deleteIcon.png";
 import SharePopup from "../components/SharePopup";
-import CreatePopup from "../components/createPopup";
+import CreatePopup from "../components/CreatePopup";
 import DeletePopup from "../components/DeletePopup";
 import { useNavigate } from "react-router-dom";
 
