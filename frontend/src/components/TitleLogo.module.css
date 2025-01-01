@@ -1,0 +1,12 @@
+.container{
+    display: flex;
+    margin-right: auto;
+    align-items: center;
+    /* font-size: 1.2rem; */
+    font-weight: 700;
+}
+.logo{
+    /* width: 2rem; */
+    height: 2rem;
+    margin-right: 1rem;
+}

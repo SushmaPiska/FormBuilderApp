@@ -1,0 +1,34 @@
+.container{
+    padding: 3rem 1rem 3.4rem 1rem;
+    box-sizing: border-box;
+}
+.heading{
+    font-size: 1.3rem;
+}
+.bubbleList, .inputList{
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding: 0;
+}
+.bubble{
+    display: flex;
+    align-items: center;
+    background: #1F1F23;
+    border: 1px solid #27272A;
+    padding: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+
+}
+.bubble>*{
+    margin-right: 1rem;
+}
+.bubble>img{
+    width: 1.3rem;
+}
+.gifIcon{
+    width: 1.5rem;
+    height: 0.7rem;
+}

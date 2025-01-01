@@ -1,0 +1,41 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2rem;
+    height: 36rem;
+    overflow-y: auto;
+
+    
+}
+
+.head{
+    background-color: #18181B;
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    box-sizing: border-box;
+    border-radius: 16px;
+    width: 16rem;
+    
+}
+.head>img{
+    margin-right: 1rem;
+}
+.element{
+    margin: 2rem 0;
+    width: 20rem;
+    position: relative;
+}
+.deleteContainer{
+    position: absolute;
+    top: -1rem;
+    right: -1rem;
+    background-color: #D9D9D9;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 2.3rem;
+    cursor: pointer;
+}

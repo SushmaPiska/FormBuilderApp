@@ -1,0 +1,67 @@
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 1rem;
+    box-sizing: border-box;
+    background-color: #18181B;
+    border-bottom: 1px solid #FFFFFF29
+}
+.container>*{
+    margin-right: 2rem;
+}
+.formInput{
+    background-color: #37373E;
+    /* background-color: #1F1F23; */
+    color: white;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    box-sizing: border-box;
+    width: 20rem;
+    font-size: 1rem;
+    margin-right: auto;
+}
+.options{
+    display: flex;
+    align-items: center;
+    margin-right: 15rem;
+}
+.showFlowBtn, .showResponseBtn{
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-right: 2rem;
+    
+
+}
+.active{
+    border: 1px solid #7EA6FF;
+    color: #7EA6FF;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+}
+.shareBtn{
+    background-color: #848890;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+}
+.saveBtn{
+    background: #4ADE80CC;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    
+}
+.closeIcon{
+    cursor: pointer;
+}
+button{
+    cursor: pointer;
+}

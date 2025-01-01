@@ -1,0 +1,21 @@
+.container{
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-evenly;
+    padding: 5rem 16rem;
+}
+
+.list{
+    list-style-type: none;
+}
+.listHead{
+    margin-bottom: 1rem;
+    font-size: 1.02rem;
+    font-weight: 700;
+
+}
+ul> li{
+    color: #FFFFFFEB;
+    padding: 0.3rem;
+
+}

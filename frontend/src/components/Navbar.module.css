@@ -1,0 +1,30 @@
+.header{
+    display: flex;
+    border-bottom: 1px solid #FFFFFF29;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0.4rem 0;
+}
+.chooseBox{
+    border: 1px solid #FFFFFF29;
+    background-color: black;
+    color: white;
+    padding: 0.6rem 0.2rem;
+    padding-right: 2rem;
+    border-radius: 8px;
+    outline: none;
+    cursor: pointer;
+    
+}
+.logout{
+  color: #FFA54C;
+}
+
+.shareBtn{
+    background-color: #1A5FFF;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    padding: 0.8rem 2rem;
+    cursor: pointer;
+}

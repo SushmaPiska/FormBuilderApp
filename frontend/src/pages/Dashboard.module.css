@@ -1,0 +1,97 @@
+.container{
+    /* background-color: #18181B; */
+}
+.body{
+    padding: 3rem 7rem;
+    box-sizing: border-box;
+}
+.folders{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+
+}
+.createFolder, .folder{
+    display: flex;
+    color: white;
+    align-items: center;
+    background-color: #18181B;
+    width: fit-content;
+    padding: 0.7rem 1rem;
+    border-radius: 6px;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+.createFolder>p{
+    margin: 0 0 0 0.6rem;
+}
+.createFolderIcon{
+    width: 1.3rem;
+    height: 1.3rem;
+
+}
+.folder>p{
+    margin: 0 0.6rem 0 0;
+}
+.forms{
+    display: flex;
+}
+.createForm, .form{
+    background-color: #1A5FFF;
+    border-radius: 6px;
+    width: fit-content;
+    align-items: center;
+    padding: 2.3rem 2.5rem ;
+    padding-bottom: 4.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+.form{
+    background: #FFFFFF80;
+    padding: 4rem;
+    
+    position: relative;
+}
+.formDeleteIcon{
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+}
+p{
+    margin: 0;
+}
+.addIcon{
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    
+}
+.sharePopup{
+    width: 40rem;
+    padding: 2rem;
+    background: black;
+    /* background: #18181B; */
+    border: 0.2px solid #FFFFFF80;
+    border-radius: 24px;
+    box-shadow: 0px 0px 3.8px 0px #FFFFFF40;
+    position: fixed;
+    top: 25%;
+    left: 23%;
+}
+.createPopup, .deletePopup{
+    background: black;
+    border: 1px solid #47474A;
+    box-shadow: 0px 0px 3.8px 0px #FFFFFF40;
+    width: 30%;
+    /* height: 20%; */
+    border-radius: 24px;
+    position: fixed;
+    top: 30%;
+    left: 30%;
+    
+}
+.deletePopup{
+    width: 25%;
+}

@@ -1,0 +1,25 @@
+.container{
+    padding: 1rem 2.5rem;
+   
+}
+.head{
+    font-size: 1.4rem;
+   
+    text-align: center;
+}
+.foot{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    margin-top: 1rem
+}
+.confirm{
+    border-right: 1px solid #47474A;
+   width: 50%;
+   color: #4B83FF;
+}
+.confirm, .cancel{
+    cursor: pointer;
+    font-size: 1.3rem;
+}

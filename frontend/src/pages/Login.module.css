@@ -1,0 +1,120 @@
+body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  
+ 
+}
+.container{
+    /* width: 100%; */
+    /* height: 100%; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    /* padding: 4rem 9.7rem; */  
+    
+
+}
+.header{
+    padding: 5rem 7rem 0rem 7rem;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.body{
+    margin: 0 auto;
+    width: 25%;
+
+}
+
+.inputContainer{
+    margin: 1.2rem 0 0 0;
+}
+.inputTitle{
+    margin-bottom: 0.3rem;
+}
+.inputItem{
+    height: 3rem;
+    width: 100%;
+    /* margin: 0.7rem 0; */
+   outline: none;
+   border-radius: 12px;
+   background: transparent;
+   padding: 0 0.8rem ;
+   box-sizing: border-box;
+   font-size: 1rem;
+   border: 1px solid #FFFFFF80;
+   color: white;
+}
+.signinBtn{
+    border: none;
+    outline: none;
+    height: 2.8rem;
+    width: 100%;
+    color: white;
+    letter-spacing: 0.03rem;
+    font-size: 1rem;
+    background-color: #1A5FFF;
+    border-radius: 12px;
+   margin: 1.5rem 0;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px 0px #E9444B40;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+
+}
+.orText{
+    text-align: center;
+}
+.googleIcon{
+    background-color: #D9D9D9;
+    border-radius: 50%;
+    padding: 0.3rem;
+}
+.signup{
+    color: #1A5FFF;
+    cursor: pointer;
+    border-radius: 12px;
+}
+.bottomText{
+    text-align: center;
+}
+.errorMessage{
+    color: #CF3636;
+    font-size: 0.9rem;
+    margin: 0.2rem 0;
+  }
+
+.shape1{
+    position: fixed;
+    left: 3%;
+    top: 30%;
+    z-index: -1;
+
+}
+.shape2{
+    background-color: #FF9595;
+    width: 7rem;
+    height: 13rem;
+    border-radius: 25rem 0 0 25rem;
+    position: fixed;
+    right: 0;
+    top: 7rem;
+    z-index: -1;
+
+}
+.shape3{
+    background-color: #FFBF7D;
+    border-radius: 25rem 25rem 0 0 ;
+    position: fixed;
+    bottom: 0;
+    right: 25%;
+    width: 14rem;
+    height: 7rem;
+    z-index: -1;
+}
+
+ 
