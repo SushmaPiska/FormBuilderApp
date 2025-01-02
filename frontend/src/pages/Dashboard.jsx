@@ -9,35 +9,36 @@ import CreatePopup from "../components/CreatePopup";
 import DeletePopup from "../components/DeletePopup";
 import { useNavigate } from "react-router-dom";
 
-function Dashboard() {
+function Dashboard({ forms, setForms }) {
   const [isSharePopup, setIsSharePopup] = useState(false);
-  const [createWhat,setCreateWhat]=useState("")
-  const [isCreateClicked,setIsCreateClicked] = useState(false)
-  const [isDeleteClicked, setIsDeleteClicked]=useState(false)
-  const [deleteWhat, setDeleteWhat]=useState("")
+  const [createWhat, setCreateWhat] = useState("");
+  const [isCreateClicked, setIsCreateClicked] = useState(false);
+  const [isDeleteClicked, setIsDeleteClicked] = useState(false);
+  const [deleteWhat, setDeleteWhat] = useState("");
 
-  const  navigate=useNavigate()
-  const handleCreateFolder=()=>{
-    setIsCreateClicked(true)
-    setCreateWhat("folder")
-    
-  }
-  const handleCreateForm=()=>{
-    setIsCreateClicked(true)
-    setCreateWhat("form")
+  
+  
+  const navigate = useNavigate();
+  const handleCreateFolder = () => {
+    setIsCreateClicked(true);
+    setCreateWhat("folder");
+  };
+  const handleCreateForm = () => {
+    setIsCreateClicked(true);
+    setCreateWhat("form");
+  };
+  const handleDeleteFolder = () => {
+    setIsDeleteClicked(true);
+    setDeleteWhat("folder");
+  };
+  const handleDeleteForm = () => {
+    setIsDeleteClicked(true);
+    setDeleteWhat("file");
+  };
+  const handleFormWorkspace = (form) => {
+    navigate("/workspace", { state: { form} });
+  };
 
-  }
-  const handleDeleteFolder=()=>{
-    setIsDeleteClicked(true)
-    setDeleteWhat("folder")
-  }
-  const handleDeleteForm=()=>{
-    setIsDeleteClicked(true)
-    setDeleteWhat("file")
-  }
-  const handleFormWorkspace=()=>{
-    navigate('/workspace')
-  }
   return (
     <div className={styles.container}>
       <Navbar setIsSharePopup={setIsSharePopup} />
@@ -53,7 +54,7 @@ function Dashboard() {
           </div>
           <div className={styles.folder}>
             <p>Computer Networks</p>
-            <img src={deleteIcon} alt="" onClick={handleDeleteFolder}/>
+            <img src={deleteIcon} alt="" onClick={handleDeleteFolder} />
           </div>
         </div>
         <div className={styles.forms}>
@@ -61,22 +62,42 @@ function Dashboard() {
             <p className={styles.addIcon}>+</p>
             <p>Create a typebot</p>
           </div>
-          <div className={styles.form} onClick={handleFormWorkspace}>
-            <img src={deleteIcon} alt="" className={styles.formDeleteIcon} onClick={handleDeleteForm}/>
-            <p>New form</p>
-          
-          </div>
+          {forms.map((form, index)=>(
+            <div className={styles.form} onClick={()=>handleFormWorkspace(form)}>
+              <img
+                src={deleteIcon}
+                alt=""
+                className={styles.formDeleteIcon}
+                onClick={handleDeleteForm}
+              />
+              <p>{form.name}</p>
+            </div>
+          ))
+            
+          }
         </div>
 
-        {isSharePopup && <div className={styles.sharePopup}>
-            <SharePopup setIsSharePopup={setIsSharePopup}/>
-        </div>}
-        {isCreateClicked && <div className={styles.createPopup}>
-          <CreatePopup createWhat={createWhat} setIsCreateClicked={setIsCreateClicked}/>
-        </div>}
-        {isDeleteClicked && <div className={styles.deletePopup}>
-          <DeletePopup deleteWhat={deleteWhat} setIsDeleteClicked={setIsDeleteClicked}/>
-        </div>}
+        {isSharePopup && (
+          <div className={styles.sharePopup}>
+            <SharePopup setIsSharePopup={setIsSharePopup} />
+          </div>
+        )}
+        {isCreateClicked && (
+          <div className={styles.createPopup}>
+            <CreatePopup
+              createWhat={createWhat}
+              setIsCreateClicked={setIsCreateClicked}
+            />
+          </div>
+        )}
+        {isDeleteClicked && (
+          <div className={styles.deletePopup}>
+            <DeletePopup
+              deleteWhat={deleteWhat}
+              setIsDeleteClicked={setIsDeleteClicked}
+            />
+          </div>
+        )}
       </div>
     </div>
   );

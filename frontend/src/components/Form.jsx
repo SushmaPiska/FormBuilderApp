@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./Form.module.css";
-function Form() {
-
-  const [elements, setElements] = useState([
+import saveIcon from "../assets/saveIcon.png";
+const QuestionAnswerForm = () => {
+  const questions = [
     { id: 1, type: "bubble", content: "Welcome to the form!", completed: true },
     {
       id: 2,
@@ -19,37 +19,77 @@ function Form() {
       value: "",
       completed: false,
     },
-  ]);
+  ];
 
-  const handleInputChange = (id, value) => {
-    const updatedElements = elements.map((element) =>
-      element.id === id ? { ...element, value, completed: !!value } : element
-    );
-    setElements(updatedElements);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [answers, setAnswers] = useState({});
+
+  useEffect(() => {
+    const currentQuestion = questions[currentIndex];
+    if (currentQuestion?.type === "bubble") {
+      const timer = setTimeout(() => {
+        setCurrentIndex((prevIndex) => prevIndex + 1);
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [currentIndex, questions]);
+
+  const handleAnswerChange = (e) => {
+    const updatedAnswers = {
+      ...answers,
+      [questions[currentIndex].id]: e.target.value,
+    };
+    setAnswers(updatedAnswers);
   };
 
-  const nextElementIndex = elements.findIndex((el) => !el.completed);
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => prevIndex + 1);
+  };
+
+  const handleSubmit = () => {
+    console.log("Submitted Answers:", answers);
+    alert("Form submitted successfully!");
+  };
 
   return (
-    <div>
-      {elements.slice(0, nextElementIndex + 1).map((element) =>
-        element.type === "bubble" ? (
-          <div key={element.id} className="bubble">
-            {element.content}
-          </div>
-        ) : (
-          <div key={element.id} className="input">
-            <label>{element.content}</label>
-            <input
-              type="text"
-              value={element.value}
-              onChange={(e) => handleInputChange(element.id, e.target.value)}
-            />
-          </div>
-        )
+    <div className={styles.container}>
+      {questions.slice(0, currentIndex + 1).map((question, index) => (
+        <div key={question.id} style={{ marginBottom: "20px" }}>
+          {question.type === "bubble" && (
+            <div className={styles.bubble}>{question.content}</div>
+          )}
+
+          {question.type === "input" && (
+            <div>
+              <p className={styles.bubble}>{question.content}</p>
+              <div className={styles.inputContainer}>
+              <input
+                type="text"
+                placeholder="Your answer"
+                value={answers[question.id] || ""}
+                onChange={handleAnswerChange}
+                className={currentIndex === index ? styles.input : styles.reply}
+              />
+              {currentIndex === index && (
+                <button
+                  className={styles.saveBtn}
+                  onClick={handleNext}
+                  disabled={!answers[question.id]}
+                >
+                  <img src={saveIcon} alt="" className={styles.saveIcon} />
+                </button>
+              )}
+              </div>
+            </div>
+          )}
+        </div>
+      ))}
+
+      {currentIndex === questions.length && (
+        <button onClick={handleSubmit}>Submit</button>
       )}
     </div>
   );
-}
+};
 
-export default Form;
+export default QuestionAnswerForm;

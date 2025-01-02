@@ -1,0 +1,49 @@
+.container{
+    background-color: white;
+    color: black;
+    width: 100vw;
+    height: 100vh;
+    padding: 2rem 26rem;
+    box-sizing: border-box;
+}
+
+.bubble{
+    background-color: rgb(243, 247, 246);
+    border-radius: 8px;
+    padding: 0.5rem;
+    width: fit-content;
+    /* background-color: #1A5FFF; */
+
+}
+.input{
+    border: none;
+    outline: none;
+    color: black;
+    box-shadow: 0px 4px 6.3px 0px #00000040;
+    padding: 0.8rem;
+    font-size: 1rem;
+   
+
+}
+.reply{
+    background-color: #FF8E21;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+}
+.inputContainer{
+    display: flex;
+    align-items: center;
+    float: right;
+}
+.saveBtn{
+    border: none;
+
+}
+.saveIcon{
+    background-color: #1A5FFF;
+    padding: 0.8rem;
+    border-radius: 5px;
+}

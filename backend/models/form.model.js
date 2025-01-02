@@ -1,24 +1,68 @@
-// import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
-// const userSchema=new mongoose.Schema({
-//     userName:{
-//         type:String,
-//         required:true
-//     },
-    
-//     email:{
-//         type:String,
-//         required:true,
-//         unique:true
-//     },
-//     password:{
-//         type:String,
-//         required:true,
-//         minlength:6
-//     },
-   
-// })
+const formSchemaa = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
 
-// const User=mongoose.model('User',userSchema)
+  elements: {
+    type: [
+      {
+        id: {
+          type: Number,
+          required: true,
+        },
+        title: {
+          type: String,
+          required: true,
+        },
 
-// export default User;
+        elementName: {
+          type: String,
+          required: true,
+        },
+        type: {
+          type: String,
+          required: true,
+        },
+        bubbleContent: {
+          type: String,
+          required: true,
+        },
+      },
+    ],
+    required: true,
+  },
+
+  creator: {
+    type: mongoose.Schema.ObjectId,
+    ref: "User",
+    required: true,
+  },
+
+  sharedWith: {
+    type: [
+      {
+        user: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "User",
+        },
+        accessType: {
+          type: String,
+          enum: ["view", "edit"],
+          default: "view",
+        },
+      },
+    ],
+  },
+
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+});
+
+const Form = mongoose.model("Form", formSchemaa);
+
+export default Form;

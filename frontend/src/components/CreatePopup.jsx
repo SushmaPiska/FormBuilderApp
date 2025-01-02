@@ -6,6 +6,7 @@ function CreatePopup({createWhat,setIsCreateClicked}) {
     }
     const handleDone=()=>{
         setIsCreateClicked(false)
+        
     }
   return (
     <div className={styles.container}>

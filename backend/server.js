@@ -2,6 +2,7 @@ import path from 'path'
 import express from "express";
 import dotenv from "dotenv";
 import userRouter from "./routes/user.routes.js";
+import formRouter from "./routes/form.routes.js";
 
 import connectToMongoDB from "./db/connectToMongoDB.js";
 import cors from "cors";
@@ -30,7 +31,7 @@ app.use(cors({
 app.options('*', cors());
 
 app.use("/api/auth",userRouter);
-// app.use("/api/auth",taskRouter);
+app.use("/api/form",formRouter);
 
 
 // app.use(express.static(path.join(__dirname,'..', 'frontend', 'dist')));
@@ -40,8 +41,6 @@ app.use(express.static(path.join(__dirname, '..', 'frontend', 'public')));
 
 app.use(express.static(__dirname + '/public'));
 
-console.log(__dirname + '/public')
-// app.use(express.static('public'));
 
 
 app.get("*",(req,res)=>{

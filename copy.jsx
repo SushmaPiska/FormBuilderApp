@@ -5,8 +5,6 @@ import FlowInputElement from "./FlowInputElement";
 import deleteIcon from "../assets/deleteIcon.png";
 function FlowArea({ elementType, element,setElement, flowElements, setFlowElements, bubbleContent, setBubbleContent, form }) {
 console.log(form)
-
-
   const handleElementUpdate = (updatedElement) => {
     setFlowElements((prevElements) =>
       prevElements.map((el) =>
