@@ -143,8 +143,29 @@ function Settings() {
     }
   };
 
-  const handleLogout = () => {
-    navigate("/login");
+  const handleLogout = async () => {
+    try {
+      axios
+        .post(`${import.meta.env.VITE_BASE_URL}/api/auth/logout`, {
+          withCredentials: true,
+        })
+        .then((response) => {
+          
+          localStorage.removeItem("token");
+          localStorage.removeItem("user");
+          window.location.href = "/login";
+          console.log("logged out successfully");
+         
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } catch (error) {
+      console.error(
+        "Error logging out:",
+        error.response?.data || error.message
+      );
+    }
   };
 
   return (
