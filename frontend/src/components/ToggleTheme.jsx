@@ -4,15 +4,16 @@ function ToggleTheme({ toggleTheme }) {
 
   return (
     <div className={styles.toggleTheme}>
-      <p>Light</p>
+      <p>Dark</p>
       <label className={styles.switch}  >
-        <input type="checkbox" />
+        <input type="checkbox" onChange={toggleTheme} 
+        
+        />
         <span
           className={`${styles.slider} ${styles.round}`}
-          onClick={toggleTheme}
         ></span>
       </label>
-      <p>Dark</p>
+      <p>Light</p>
     </div>
   );
 }

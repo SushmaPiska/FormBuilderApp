@@ -28,3 +28,11 @@
     padding: 0.8rem 2rem;
     cursor: pointer;
 }
+.settingsBtn{
+    border: none;
+    background-color: black;
+    border: 1px solid #FFFFFF29;
+    border-radius: 6px;
+    color: white;
+    padding: 0.5rem;
+}

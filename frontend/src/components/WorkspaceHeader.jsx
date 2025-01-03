@@ -3,7 +3,7 @@ import styles from "./WorkspaceHeader.module.css";
 import ToggleTheme from "./ToggleTheme";
 import closeIcon from "../assets/closeIcon.png";
 import { useNavigate } from "react-router-dom";
-function WorkspaceHeader({ handleSaveForm, handleShareForm, formName }) {
+function WorkspaceHeader({ handleSaveForm, handleShareForm, formName, isFlow, setIsFlow }) {
   const navigate=useNavigate()
   // const handleSave=()=>{
 
@@ -22,8 +22,8 @@ const handleCloseWorkspace=()=>{
         className={styles.formInput}
       />
       <div className={styles.options}>
-        <p className={`${styles.showFlowBtn} ${styles.active}`}>Flow</p>
-        <p className={styles.showResponseBtn}>Response</p>
+        <p className={isFlow ?`${styles.showFlowBtn} ${styles.active}`:styles.showFlowBtn} onClick={()=>setIsFlow(true)}>Flow</p>
+        <p className={isFlow ? styles.showResponseBtn: `${styles.showResponseBtn} ${styles.active}`}  onClick={()=>setIsFlow(false)}>Response</p>
       </div>
 
       <ToggleTheme />

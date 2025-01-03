@@ -10,18 +10,22 @@ function Navbar({setIsSharePopup, toggleTheme}) {
     const handleShare=()=>{
       setIsSharePopup(true)
     }
+
+    const storedUser = JSON.parse(localStorage.getItem("user") || "{}");
+    const userName = storedUser && storedUser.name ? storedUser.name : "Guest";
+
   return (
     <div className={styles.header}>
         <select className={styles.chooseBox}>
           <option value="workspace" defaultChecked>
-            Sushma Piska's workspace
+            {userName}'s workspace
           </option>
           <option value="settings" onClick={handleSettings}>
             Settings
           </option>
           <option value="logout" className={styles.logout}>Log Out</option>
         </select>
-        <button onClick={handleSettings}>settings</button>
+        <button className={styles.settingsBtn} onClick={handleSettings}>settings</button>
         <div className={styles.toggleTheme}  >
           <ToggleTheme toggleTheme={toggleTheme}/>
         </div>

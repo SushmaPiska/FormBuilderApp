@@ -1,10 +1,11 @@
-import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import styles from "./Workspace.module.css";
 import WorkspaceHeader from "../components/WorkspaceHeader";
 import FormInputList from "../components/FormInputList";
 import FlowArea from "../components/FlowArea";
+import Response from "../components/Response";
 function Workspace() {
   const location = useLocation();
   const { form, formName } = location.state || {};
@@ -13,12 +14,20 @@ function Workspace() {
   const [element, setElement] = useState({});
   const [flowElements, setFlowElements] = useState(form?.elements || []);
   const [bubbleContent, setBubbleContent] = useState("");
+  const [isFlow, setIsFlow]=useState(true)
 
   const user = JSON.parse(localStorage.getItem("user") || "{}");
   const userId = user && user._id;
 
   const token = localStorage.getItem("token");
-
+const navigate=useNavigate()
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate("/login");
+    }
+  }, [navigate]);
+  
   const handleSaveForm = async () => {
     console.log(form);
     try {
@@ -68,8 +77,12 @@ function Workspace() {
         handleSaveForm={handleSaveForm}
         handleShareForm={handleShareForm}
         formName={form.name}
+        isFlow={isFlow}
+        setIsFlow={setIsFlow}
       />
-      <div className={styles.body}>
+       {isFlow ? 
+      <div className={styles.flowBody}>
+     
         <div className={styles.formInputList}>
           <FormInputList
             setElementType={setElementType}
@@ -79,6 +92,7 @@ function Workspace() {
             bubbleContent={bubbleContent}
           />
         </div>
+        
         <div className={styles.flow}>
           <FlowArea
             elementType={elementType}
@@ -91,7 +105,14 @@ function Workspace() {
             form={form}
           />
         </div>
+      </div>  :
+      <div className={styles.responseBody}>
+        <Response/>
+
       </div>
+        
+       }
+      
     </div>
   );
 }

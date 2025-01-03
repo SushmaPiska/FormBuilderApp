@@ -23,7 +23,7 @@ function LandingPage() {
           <TitleLogo/>
         </div>
         <button className={styles.signinBtn} onClick={handleLogin}>Sign in</button>
-        <button className={styles.createBtn}>Create a FormBot</button>
+        <button className={styles.createBtn}  onClick={handleLogin}>Create a FormBot</button>
       </div>
       <div className={styles.body}>
         <div className={styles.bodyHead}>
@@ -37,7 +37,7 @@ function LandingPage() {
               experiences. Embed them anywhere on your web/mobile apps and start
               collecting results like magic.
             </p>
-            <button className={styles.createBtn}>
+            <button className={`${styles.createBtn } ${styles.marginTop}` } onClick={handleLogin}>
               Create a formBot for free
             </button>
           </div>

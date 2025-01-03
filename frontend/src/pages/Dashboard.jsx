@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Dashboard.module.css";
 
 import Navbar from "../components/Navbar";
@@ -34,6 +34,14 @@ function Dashboard({ forms, setForms, setFormsChange,toggleTheme }) {
     setIsDeleteClicked(true);
     setDeleteWhat("file");
   };
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate("/login");
+    }
+  }, [navigate]);
+  
   const handleDeleteConfirm = async (form) => {
     try {
       const response = await axios.delete(
@@ -79,7 +87,7 @@ function Dashboard({ forms, setForms, setFormsChange,toggleTheme }) {
             <p>Create a typebot</p>
           </div>
           {forms.map((form, index) => (
-            <div className={styles.form}>
+            <div key={index} className={styles.form}>
               <img
                 src={deleteIcon}
                 alt=""

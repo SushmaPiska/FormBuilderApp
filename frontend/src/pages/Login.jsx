@@ -165,7 +165,7 @@ function Login() {
         onClick={handleLanding}
       />
 
-      <div className={styles.body}>
+      <div className={isSignup? styles.body :`${styles.body} ${styles.marginZ}` }>
         {isSignup && (
           <div className={styles.inputContainer}>
             <p className={styles.inputTitle}>Username</p>
