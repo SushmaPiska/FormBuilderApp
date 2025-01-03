@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const formSchemaa = new mongoose.Schema({
+const formSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -11,28 +11,22 @@ const formSchemaa = new mongoose.Schema({
       {
         id: {
           type: Number,
-          required: true,
         },
         title: {
           type: String,
-          required: true,
         },
 
         elementName: {
           type: String,
-          required: true,
         },
         type: {
           type: String,
-          required: true,
         },
         bubbleContent: {
           type: String,
-          required: true,
         },
       },
     ],
-    required: true,
   },
 
   creator: {
@@ -63,6 +57,6 @@ const formSchemaa = new mongoose.Schema({
   },
 });
 
-const Form = mongoose.model("Form", formSchemaa);
+const Form = mongoose.model("Form", formSchema);
 
 export default Form;

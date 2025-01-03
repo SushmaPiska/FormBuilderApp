@@ -28,7 +28,7 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<Login />} />
-        <Route path="dashboard" element={<Dashboard forms={forms} setForms={setForms}/>} />
+        <Route path="dashboard" element={<Dashboard forms={forms} setForms={setForms} setFormsChange={setFormsChange}/>} />
         <Route path="settings" element={<Settings />} />
         <Route path="workspace" element={<Workspace forms={forms} setForms={setForms}/>} />
         <Route path="form" element={<Form />} />

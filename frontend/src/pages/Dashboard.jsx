@@ -9,14 +9,14 @@ import CreatePopup from "../components/CreatePopup";
 import DeletePopup from "../components/DeletePopup";
 import { useNavigate } from "react-router-dom";
 
-function Dashboard({ forms, setForms }) {
+function Dashboard({ forms, setForms, setFormsChange }) {
   const [isSharePopup, setIsSharePopup] = useState(false);
   const [createWhat, setCreateWhat] = useState("");
   const [isCreateClicked, setIsCreateClicked] = useState(false);
   const [isDeleteClicked, setIsDeleteClicked] = useState(false);
   const [deleteWhat, setDeleteWhat] = useState("");
 
-  
+
   
   const navigate = useNavigate();
   const handleCreateFolder = () => {
@@ -39,6 +39,7 @@ function Dashboard({ forms, setForms }) {
     navigate("/workspace", { state: { form} });
   };
 
+  
   return (
     <div className={styles.container}>
       <Navbar setIsSharePopup={setIsSharePopup} />
@@ -87,6 +88,7 @@ function Dashboard({ forms, setForms }) {
             <CreatePopup
               createWhat={createWhat}
               setIsCreateClicked={setIsCreateClicked}
+              setFormsChange={setFormsChange}
             />
           </div>
         )}
