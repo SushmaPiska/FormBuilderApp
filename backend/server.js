@@ -33,14 +33,11 @@ app.options('*', cors());
 app.use("/api/auth",userRouter);
 app.use("/api/form",formRouter);
 
-
-// app.use(express.static(path.join(__dirname,'..', 'frontend', 'dist')));
-console.log(path.join(__dirname,'..', 'frontend', 'dist'))
-// app.use(express.static(__dirname + 'frontend'+ '/public'));
-app.use(express.static(path.join(__dirname, '..', 'frontend', 'public')));
-
+app.use(express.static(path.join(__dirname, "frontend", "dist")));
+// console.log(path.join(__dirname, "frontend", "dist"))
 app.use(express.static(__dirname + '/public'));
 
+// console.log(__dirname + '/public')
 
 
 app.get("*",(req,res)=>{

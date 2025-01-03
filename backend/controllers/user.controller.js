@@ -82,18 +82,18 @@ export const logout = (req, res) => {
 export const updateUserName = async (req,res) => {
   try {
     const { id } = req.params;
-    const { name } = req.body;
+    const { userName } = req.body;
     let user = await User.findById(id);
 
     if (!user) {
       return res.status(400).json({ message: "User not found" });
     }
-    user = await User.findByIdAndUpdate(id, { name }, { new: true });
+    user = await User.findByIdAndUpdate(id, { userName }, { new: true });
 
     res.status(200).json(user);
   } catch (error) {
     console.log(error);
-    res.status(400).json({ message: "name not updated" });
+    res.status(400).json({ message: "userName not updated" });
   }
 };
 export const updateUserEmail = async (req,res) => {
@@ -146,4 +146,3 @@ export const updateUserPassword = async (req, res) => {
 };
 
 
-export const getUsers = () => {};

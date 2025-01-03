@@ -31,9 +31,12 @@ function Login() {
   const [backendError, setBackendError] = useState("");
 
   const [error, setError] = useState({
-    userName: { message: "", isVisible: false },
-    email: { message: "", isVisible: false },
-    password: { message: "", isVisible: false },
+    userName: false,
+    // { message: "", isVisible: false },
+    email: false,
+    // { message: "", isVisible: false },
+    password: false
+    // { message: "", isVisible: false },
   });
 
   const frontendErrorMessages = {
@@ -63,10 +66,10 @@ function Login() {
     let isError = false;
     setBackendError("");
     setError({
-      userName: { message: "", isVisible: false },
+      userName: false,
 
-      email: { message: "", isVisible: false },
-      password: { message: "", isVisible: false },
+      email: false,
+      password:false
     });
 
     Object.keys(frontendErrorMessages).forEach((key) => {
@@ -96,15 +99,15 @@ function Login() {
         if (err.response) {
           console.log(err.response.data.error);
 
-          // setBackendError(err.response.data.error);
         } else {
           console.log("Error details:", err);
-          // setBackendError("Network error. Please try again.");
+         
         }
       }
     }
   };
   const handleLogin = async () => {
+    
     let isError = false;
     setError({ email: false, password: false });
     setBackendError("");
@@ -118,7 +121,8 @@ function Login() {
       console.log("Email and password are required");
       return;
     }
-    if (!isError) {
+    console.log("entered", isError)
+   
       try {
         const response = await axios.post(
           `${import.meta.env.VITE_BASE_URL}/api/auth/login`,
@@ -139,7 +143,7 @@ function Login() {
           setBackendError("Network error. Please try again.");
         }
       }
-    }
+   
   };
 
   const handleNavigate = () => {

@@ -3,7 +3,7 @@
     color: black;
     width: 100vw;
     height: 100vh;
-    padding: 2rem 26rem;
+    padding: 4rem 26rem;
     box-sizing: border-box;
 }
 
@@ -12,6 +12,7 @@
     border-radius: 8px;
     padding: 0.5rem;
     width: fit-content;
+    margin-top: 2rem;
     /* background-color: #1A5FFF; */
 
 }
@@ -46,4 +47,12 @@
     background-color: #1A5FFF;
     padding: 0.8rem;
     border-radius: 5px;
+}
+.submitBtn{
+    border: none;
+    background-color: #1A5FFF;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 8px;
+    margin-top: 2rem;
 }

@@ -28,7 +28,9 @@ const formSchema = new mongoose.Schema({
       },
     ],
   },
-
+  responses:{
+    type:[[String]]
+  },
   creator: {
     type: mongoose.Schema.ObjectId,
     ref: "User",

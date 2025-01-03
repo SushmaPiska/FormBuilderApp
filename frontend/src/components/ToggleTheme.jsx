@@ -1,12 +1,16 @@
 import React from "react";
 import styles from "./ToggleTheme.module.css";
-function ToggleTheme() {
+function ToggleTheme({ toggleTheme }) {
+
   return (
     <div className={styles.toggleTheme}>
       <p>Light</p>
-      <label className={styles.switch}>
+      <label className={styles.switch}  >
         <input type="checkbox" />
-        <span className={`${styles.slider} ${styles.round}`}></span>
+        <span
+          className={`${styles.slider} ${styles.round}`}
+          onClick={toggleTheme}
+        ></span>
       </label>
       <p>Dark</p>
     </div>

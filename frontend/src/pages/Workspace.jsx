@@ -47,16 +47,16 @@ function Workspace() {
   };
 
   const handleShareForm = async () => {
+    console.log("share clicked")
     try {
       const BASE_URL =
         import.meta.env.MODE === "development"
           ? "http://localhost:5173"
-          : "https://formbuilderapp.onrender.com";
+          : VITE_BASE_URL;
 
-      const link = `${BASE_URL}/taskDetails/${taskId}`;
+      const link = `${BASE_URL}/form/${form._id}`;
       await navigator.clipboard.writeText(link);
-      setDateSpace(false);
-      setTimeout(() => setDateSpace(true), 3000);
+      alert("link copied")
     } catch (error) {
       console.log("error in sharing" + error);
     }
@@ -67,6 +67,7 @@ function Workspace() {
       <WorkspaceHeader
         handleSaveForm={handleSaveForm}
         handleShareForm={handleShareForm}
+        formName={form.name}
       />
       <div className={styles.body}>
         <div className={styles.formInputList}>

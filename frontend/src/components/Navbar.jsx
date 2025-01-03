@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './Navbar.module.css'
 import { useNavigate } from "react-router-dom";
 import ToggleTheme from './ToggleTheme';
-function Navbar({setIsSharePopup}) {
+function Navbar({setIsSharePopup, toggleTheme}) {
     const navigate = useNavigate();
       const handleSettings = () => {
         navigate("/settings");
@@ -22,8 +22,8 @@ function Navbar({setIsSharePopup}) {
           <option value="logout" className={styles.logout}>Log Out</option>
         </select>
         <button onClick={handleSettings}>settings</button>
-        <div className={styles.toggleTheme}>
-          <ToggleTheme/>
+        <div className={styles.toggleTheme}  >
+          <ToggleTheme toggleTheme={toggleTheme}/>
         </div>
         <button className={styles.shareBtn} onClick={handleShare}>Share</button>
       </div>

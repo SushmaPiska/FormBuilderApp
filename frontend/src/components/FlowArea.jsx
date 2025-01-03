@@ -31,7 +31,7 @@ console.log(form)
       <div className={styles.body}>
         {flowElements?.map((element, index) => (
           <div key={index} className={styles.element}>
-            <FlowInputElement elementType={elementType} element={element} setElement={setElement} setBubbleContent={setBubbleContent} handleElementUpdate={handleElementUpdate}/>
+            <FlowInputElement elementType={elementType} element={element} setElement={setElement} bubbleContent={element.bubbleContent} setBubbleContent={setBubbleContent} handleElementUpdate={handleElementUpdate}/>
             <div
               className={styles.deleteContainer}
               onClick={() => handleRemoveElement(index)}

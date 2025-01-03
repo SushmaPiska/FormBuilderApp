@@ -13,8 +13,8 @@ import { useNavigate } from "react-router-dom";
 function LandingPage() {
     const navigate=useNavigate();
     const handleLogin=()=>{
-        // navigate('/login')
-        navigate("/dashboard");
+        navigate('/login')
+        // navigate("/dashboard");
     }
   return (
     <div className={styles.container}>
