@@ -52,7 +52,7 @@ function Workspace() {
       const BASE_URL =
         import.meta.env.MODE === "development"
           ? "http://localhost:5173"
-          : VITE_BASE_URL;
+          : import.meta.env.VITE_BASE_URL;
 
       const link = `${BASE_URL}/form/${form._id}`;
       await navigator.clipboard.writeText(link);
